@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -28,1059 +29,1059 @@
     --radius-lg: 12px;
   }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    font-family: 'Poppins', sans-serif;
-    background: var(--black);
-    color: var(--text);
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
-
-  /* ── SCREENS ── */
-  .screen { display: none; min-height: 100vh; }
-  .screen.active { display: flex; flex-direction: column; }
-
-  /* ── PIN SCREEN ── */
-  #pin-screen {
-    align-items: center;
-    justify-content: center;
-    background: var(--black);
-    padding: 40px 20px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  #pin-screen::before {
-    content: '';
-    position: absolute;
-    width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(245,167,53,0.08) 0%, transparent 70%);
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-  }
-
-  .pin-card {
-    background: var(--surface);
-    border: 1px solid var(--gold-border);
-    border-top: 3px solid var(--gold);
-    border-radius: var(--radius-lg);
-    padding: 40px 32px;
-    width: 100%;
-    max-width: 420px;
-    text-align: center;
-    position: relative;
-    z-index: 1;
-  }
-
-  .logo-block {
-    margin-bottom: 32px;
-  }
-
-  .logo-placeholder {
-    width: 72px; height: 72px;
-    background: var(--gold-muted);
-    border: 2px solid var(--gold-border);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 16px;
-    font-size: 28px;
-  }
-
-  .brand-name {
-    font-family: 'Chakra Petch', sans-serif;
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--gold);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-  }
-
-  .brand-sub {
-    font-size: 11px;
-    color: var(--text-muted);
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    margin-top: 4px;
-  }
-
-  .pin-title {
-    font-family: 'Chakra Petch', sans-serif;
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 6px;
-  }
-
-  .pin-sub {
-    font-size: 13px;
-    color: var(--text-muted);
-    margin-bottom: 28px;
-  }
-
-  .pin-input {
-    width: 100%;
-    background: var(--surface2);
-    border: 1px solid var(--surface4);
-    border-radius: var(--radius);
-    padding: 14px 16px;
-    font-size: 20px;
-    letter-spacing: 8px;
-    color: var(--text);
-    text-align: center;
-    outline: none;
-    transition: border-color 0.2s;
-    margin-bottom: 16px;
-    font-family: 'Chakra Petch', sans-serif;
-  }
-
-  .pin-input:focus { border-color: var(--gold); }
-  .pin-input.error { border-color: var(--red); animation: shake 0.3s; }
-
-  @keyframes shake {
-    0%,100% { transform: translateX(0); }
-    25% { transform: translateX(-8px); }
-    75% { transform: translateX(8px); }
-  }
-
-  .pin-error {
-    color: var(--red);
-    font-size: 12px;
-    margin-bottom: 12px;
-    min-height: 16px;
-  }
-
-  /* ── BUTTONS ── */
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 12px 24px;
-    border-radius: var(--radius);
-    font-family: 'Chakra Petch', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    cursor: pointer;
-    border: none;
-    transition: all 0.2s;
-    text-decoration: none;
-  }
-
-  .btn-primary {
-    background: var(--gold);
-    color: var(--black);
-    width: 100%;
-  }
-  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
-
-  .btn-secondary {
-    background: transparent;
-    color: var(--gold);
-    border: 1px solid var(--gold-border);
-  }
-  .btn-secondary:hover { background: var(--gold-muted); }
-
-  .btn-ghost {
-    background: var(--surface3);
-    color: var(--text);
-    border: 1px solid var(--surface4);
-  }
-  .btn-ghost:hover { background: var(--surface4); }
-
-  .btn-sm { padding: 8px 16px; font-size: 11px; }
-  .btn-danger { background: rgba(224,82,82,0.15); color: var(--red); border: 1px solid rgba(224,82,82,0.3); }
-
-  /* ── TOP NAV ── */
-  .top-nav {
-    background: var(--surface);
-    border-bottom: 1px solid var(--surface3);
-    border-top: 2px solid var(--gold);
-    padding: 0 12px;
-    height: 52px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    overflow: hidden;
-  }
-
-  .nav-brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .nav-logo {
-    width: 36px; height: 36px;
-    background: var(--gold-muted);
-    border: 1px solid var(--gold-border);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-  }
-
-  .nav-title {
-    font-family: 'Chakra Petch', sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--gold);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-
-  .nav-subtitle {
-    font-size: 10px;
-    color: var(--text-muted);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-  }
-
-  .nav-actions { display: flex; gap: 8px; align-items: center; }
-
-  /* ── DASHBOARD ── */
-  #dashboard-screen { background: var(--black); }
-
-  .dashboard-body {
-    padding: 24px 20px;
-    max-width: 900px;
-    margin: 0 auto;
-    width: 100%;
-  }
-
-  .stats-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-bottom: 20px;
-  }
-
-  .stat-card {
-    background: var(--surface);
-    border: 1px solid var(--surface3);
-    border-radius: var(--radius);
-    padding: 16px;
-  }
-
-  .stat-label {
-    font-size: 10px;
-    color: var(--text-muted);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-  }
-
-  .stat-value {
-    font-family: 'Chakra Petch', sans-serif;
-    font-size: 32px;
-    font-weight: 700;
-    line-height: 1;
-  }
-
-  .stat-gold { color: var(--gold); }
-  .stat-blue { color: var(--blue); }
-  .stat-purple { color: #A78BFA; }
-  .stat-green { color: var(--green); }
-
-  /* ── ALERT CARD ── */
-  .alert-card {
-    background: var(--surface);
-    border: 1px solid rgba(245,167,53,0.4);
-    border-radius: var(--radius);
-    padding: 16px;
-    margin-bottom: 20px;
-  }
-
-  .alert-header {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 12px;
-  }
-
-  .alert-title {
-    font-family: 'Chakra Petch', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--gold);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-
-  .alert-desc {
-    font-size: 12px;
-    color: var(--text-muted);
-    margin-bottom: 12px;
-  }
-
-  .alert-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 0;
-    border-top: 1px solid var(--surface3);
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-
-  .alert-id {
-    font-family: 'Chakra Petch', sans-serif;
-    font-size: 12px;
-    color: var(--gold);
-    font-weight: 600;
-    min-width: 60px;
-  }
-
-  .alert-name { font-size: 13px; font-weight: 500; flex: 1; }
-  .alert-role { font-size: 11px; color: var(--text-muted); min-width: 100px; }
-
-  .alert-date {
-    font-size: 11px;
-    color: var(--gold);
-    font-weight: 600;
-    text-align: right;
-  }
-
-  /* ── EMPLOYEE TABLE ── */
-  .section-header {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 12px;
-  }
-
-  .section-title {
-    font-family: 'Chakra Petch', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--text);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-
-  .employee-table {
-    background: var(--surface);
-    border: 1px solid var(--surface3);
-    border-radius: var(--radius);
-    overflow: hidden;
-    margin-bottom: 20px;
-  }
-
-  .table-header {
-    display: grid;
-    grid-template-columns: 80px 1fr 120px 90px 80px;
-    padding: 10px 16px;
-    background: var(--surface2);
-    border-bottom: 1px solid var(--surface3);
-  }
-
-  .table-col {
-    font-size: 10px;
-    color: var(--text-dim);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: 500;
-  }
-
-  .table-row {
-    display: grid;
-    grid-template-columns: 80px 1fr 120px 90px 80px;
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--surface2);
-    align-items: center;
-    transition: background 0.15s;
-    cursor: pointer;
-  }
-
-  .table-row:last-child { border-bottom: none; }
-  .table-row:hover { background: var(--surface2); }
-
-  .table-id {
-    font-family: 'Chakra Petch', sans-serif;
-    font-size: 12px;
-    color: var(--gold);
-    font-weight: 600;
-  }
-
-  .table-name { font-size: 13px; font-weight: 500; }
-  .table-role { font-size: 12px; color: var(--text-muted); }
-  .table-date { font-size: 12px; color: var(--text-muted); }
-
-  .status-badge {
-    display: inline-flex;
-    align-items: center;
-    padding: 3px 8px;
-    border-radius: 20px;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-  }
-
-  .status-complete { background: rgba(82,183,136,0.15); color: var(--green); }
-  .status-pending { background: rgba(91,143,212,0.15); color: var(--blue); }
-  .status-review { background: rgba(167,139,250,0.15); color: #A78BFA; }
-
-  .empty-state {
-    padding: 40px 20px;
-    text-align: center;
-    color: var(--text-muted);
-    font-size: 13px;
-  }
-
-  /* ── 90 DAY REVIEW SECTION ── */
-  .review-section {
-    background: var(--surface);
-    border: 1px solid var(--surface3);
-    border-radius: var(--radius);
-    padding: 16px;
-    margin-bottom: 20px;
-  }
-
-  .review-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 0;
-    border-top: 1px solid var(--surface3);
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-
-  /* ── FORM SCREEN ── */
-  #form-screen { background: var(--black); }
-
-  .form-body {
-    padding: 24px 20px;
-    max-width: 700px;
-    margin: 0 auto;
-    width: 100%;
-  }
-
-  .step-indicator {
-    display: flex;
-    align-items: center;
-    gap: 0;
-    margin-bottom: 28px;
-  }
-
-  .step-item {
-    display: flex;
-    align-items: center;
-    flex: 1;
-  }
-
-  .step-dot {
-    width: 28px; height: 28px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Chakra Petch', sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    border: 2px solid var(--surface4);
-    color: var(--text-muted);
-    background: var(--surface2);
-    flex-shrink: 0;
-    transition: all 0.3s;
-    position: relative;
-    z-index: 1;
-  }
-
-  .step-dot.active {
-    border-color: var(--gold);
-    color: var(--gold);
-    background: var(--gold-muted);
-  }
-
-  .step-dot.done {
-    border-color: var(--green);
-    color: var(--black);
-    background: var(--green);
-  }
-
-  .step-line {
-    flex: 1;
-    height: 2px;
-    background: var(--surface4);
-    margin: 0 -2px;
-    transition: background 0.3s;
-  }
-
-  .step-line.done { background: var(--green); }
-
-  .step-label {
-    font-size: 10px;
-    color: var(--text-muted);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    text-align: center;
-    margin-top: 6px;
-  }
-
-  .step-label.active { color: var(--gold); }
-
-  .step-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex: 1;
-  }
-
-  /* ── FORM CARD ── */
-  .form-card {
-    background: var(--surface);
-    border: 1px solid var(--surface3);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    margin-bottom: 16px;
-  }
-
-  .form-card-header {
-    padding: 16px 20px;
-    background: var(--surface2);
-    border-bottom: 1px solid var(--surface3);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .form-card-icon {
-    width: 32px; height: 32px;
-    background: var(--gold-muted);
-    border: 1px solid var(--gold-border);
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    flex-shrink: 0;
-  }
-
-  .form-card-title {
-    font-family: 'Chakra Petch', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--text);
-    letter-spacing: 0.5px;
-  }
-
-  .form-card-sub {
-    font-size: 11px;
-    color: var(--text-muted);
-    margin-top: 2px;
-  }
-
-  .form-card-body { padding: 20px; }
-
-  /* ── FORM FIELDS ── */
-  .field-group {
-    margin-bottom: 16px;
-  }
-
-  .field-label {
-    display: block;
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--text-muted);
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    margin-bottom: 6px;
-  }
-
-  .field-required { color: var(--red); margin-left: 2px; }
-
-  .field-input, .field-select, .field-textarea {
-    width: 100%;
-    background: var(--surface2);
-    border: 1px solid var(--surface4);
-    border-radius: var(--radius);
-    padding: 11px 14px;
-    font-size: 14px;
-    color: var(--text);
-    font-family: 'Poppins', sans-serif;
-    outline: none;
-    transition: border-color 0.2s;
-    -webkit-appearance: none;
-  }
-
-  .field-input:focus, .field-select:focus, .field-textarea:focus {
-    border-color: var(--gold);
-    background: var(--surface3);
-  }
-
-  .field-input.auto-filled {
-    border-color: rgba(82,183,136,0.4);
-    background: rgba(82,183,136,0.05);
-    color: var(--green);
-  }
-
-  .field-select {
-    cursor: pointer;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 14px center;
-    padding-right: 36px;
-  }
-
-  .field-hint {
-    font-size: 11px;
-    color: var(--text-dim);
-    margin-top: 4px;
-  }
-
-  .field-hint.auto { color: rgba(82,183,136,0.7); }
-
-  .field-textarea {
-    resize: vertical;
-    min-height: 80px;
-  }
-
-  .field-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
-
-  /* ── RADIO GROUP ── */
-  .radio-group {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-
-  .radio-option {
-    flex: 1;
-    min-width: 100px;
-  }
-
-  .radio-option input { display: none; }
-
-  .radio-label {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 16px;
-    background: var(--surface2);
-    border: 1px solid var(--surface4);
-    border-radius: var(--radius);
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--text-muted);
-    cursor: pointer;
-    transition: all 0.2s;
-    text-align: center;
-  }
-
-  .radio-option input:checked + .radio-label {
-    background: var(--gold-muted);
-    border-color: var(--gold);
-    color: var(--gold);
-    font-weight: 600;
-  }
-
-  /* ── CHECKBOX ── */
-  .checkbox-group { display: flex; flex-direction: column; gap: 10px; }
-
-  .checkbox-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 12px 14px;
-    background: var(--surface2);
-    border: 1px solid var(--surface4);
-    border-radius: var(--radius);
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-
-  .checkbox-item:hover { border-color: var(--gold-border); }
-  .checkbox-item.checked { border-color: var(--gold-border); background: var(--gold-muted); }
-
-  .checkbox-item input { display: none; }
-
-  .checkbox-box {
-    width: 18px; height: 18px;
-    border: 2px solid var(--surface4);
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    margin-top: 1px;
-    transition: all 0.2s;
-  }
-
-  .checkbox-item.checked .checkbox-box {
-    background: var(--gold);
-    border-color: var(--gold);
-    color: var(--black);
-  }
-
-  .checkbox-text { font-size: 13px; font-weight: 500; }
-  .checkbox-desc { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
-
-  /* ── SECTION DIVIDER ── */
-  .section-divider {
-    font-size: 10px;
-    font-weight: 600;
-    color: var(--gold);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding-bottom: 10px;
-    border-bottom: 1px solid var(--gold-border);
-    margin-bottom: 16px;
-    margin-top: 4px;
-  }
-
-  /* ── REVIEW SCREEN ── */
-  .review-card {
-    background: var(--surface);
-    border: 1px solid var(--surface3);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    margin-bottom: 16px;
-  }
-
-  .review-card-header {
-    padding: 14px 20px;
-    background: var(--surface2);
-    border-bottom: 1px solid var(--surface3);
-  }
-
-  .review-card-title {
-    font-family: 'Chakra Petch', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--gold);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-
-  .review-table { width: 100%; }
-
-  .review-row-item {
-    display: flex;
-    padding: 10px 20px;
-    border-bottom: 1px solid var(--surface2);
-    gap: 16px;
-  }
-
-  .review-row-item:last-child { border-bottom: none; }
-
-  .review-key {
-    font-size: 11px;
-    color: var(--text-muted);
-    width: 140px;
-    flex-shrink: 0;
-    padding-top: 1px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-
-  .review-val {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--text);
-    flex: 1;
-  }
-
-  /* ── SUCCESS SCREEN ── */
-  #success-screen {
-    align-items: center;
-    justify-content: center;
-    padding: 40px 20px;
-    background: var(--black);
-  }
-
-  .success-card {
-    background: var(--surface);
-    border: 1px solid var(--gold-border);
-    border-radius: var(--radius-lg);
-    padding: 40px 32px;
-    max-width: 480px;
-    width: 100%;
-    text-align: center;
-  }
-
-  .success-icon {
-    width: 64px; height: 64px;
-    background: rgba(82,183,136,0.15);
-    border: 2px solid var(--green);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px;
-    font-size: 28px;
-  }
-
-  .success-title {
-    font-family: 'Chakra Petch', sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 6px;
-  }
-
-  .success-id {
-    font-family: 'Chakra Petch', sans-serif;
-    font-size: 14px;
-    color: var(--gold);
-    margin-bottom: 24px;
-  }
-
-  .success-notice {
-    background: rgba(82,183,136,0.08);
-    border: 1px solid rgba(82,183,136,0.25);
-    border-radius: var(--radius);
-    padding: 14px 16px;
-    text-align: left;
-    margin-bottom: 12px;
-  }
-
-  .notice-label {
-    font-size: 10px;
-    font-weight: 700;
-    color: var(--green);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 4px;
-  }
-
-  .notice-text { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
-
-  .action-list {
-    background: var(--surface2);
-    border: 1px solid var(--surface3);
-    border-radius: var(--radius);
-    padding: 14px 16px;
-    text-align: left;
-    margin-bottom: 20px;
-  }
-
-  .action-list-title {
-    font-size: 10px;
-    font-weight: 700;
-    color: var(--gold);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-  }
-
-  .action-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 6px 0;
-    font-size: 12px;
-    color: var(--text-muted);
-    border-bottom: 1px solid var(--surface3);
-  }
-
-  .action-item:last-child { border-bottom: none; }
-  .action-num {
-    font-family: 'Chakra Petch', sans-serif;
-    color: var(--gold);
-    font-size: 11px;
-    font-weight: 700;
-    min-width: 16px;
-    margin-top: 1px;
-  }
-
-  .calendar-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    width: 100%;
-    padding: 12px;
-    background: rgba(91,143,212,0.1);
-    border: 1px solid rgba(91,143,212,0.3);
-    border-radius: var(--radius);
-    color: var(--blue);
-    font-family: 'Chakra Petch', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    cursor: pointer;
-    text-decoration: none;
-    margin-bottom: 12px;
-    transition: all 0.2s;
-  }
-
-  .calendar-btn:hover { background: rgba(91,143,212,0.2); }
-
-  .success-actions { display: flex; flex-direction: column; gap: 10px; }
-
-  /* ── DETAIL MODAL ── */
-  .modal-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.8);
-    z-index: 200;
-    align-items: flex-end;
-    justify-content: center;
-    padding: 20px;
-  }
-
-  .modal-overlay.active { display: flex; }
-
-  .modal {
-    background: var(--surface);
-    border: 1px solid var(--surface3);
-    border-radius: var(--radius-lg);
-    width: 100%;
-    max-width: 600px;
-    max-height: 80vh;
-    overflow-y: auto;
-  }
-
-  .modal-header {
-    padding: 16px 20px;
-    background: var(--surface2);
-    border-bottom: 1px solid var(--surface3);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: sticky;
-    top: 0;
-  }
-
-  .modal-title {
-    font-family: 'Chakra Petch', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--gold);
-  }
-
-  .modal-close {
-    background: none;
-    border: none;
-    color: var(--text-muted);
-    font-size: 20px;
-    cursor: pointer;
-    padding: 4px;
-    line-height: 1;
-  }
-
-  .modal-body { padding: 20px; }
-
-  /* ── FORM NAV ── */
-  .form-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 0;
-    margin-top: 8px;
-  }
-
-  /* ── CONFIG BLOCK ── */
-  /* 
-  ═══════════════════════════════════════════════════════
-  CONFIGURATION BLOCK — EDIT THIS SECTION TO MAKE CHANGES
-  All dropdown options, defaults, and settings are here.
-  ═══════════════════════════════════════════════════════
-  */
-
-  /* ── SCROLLBAR ── */
-  ::-webkit-scrollbar { width: 6px; }
-  ::-webkit-scrollbar-track { background: var(--surface); }
-  ::-webkit-scrollbar-thumb { background: var(--surface4); border-radius: 3px; }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 480px) {
-    .table-header, .table-row {
-      grid-template-columns: 70px 1fr 90px;
-    }
-    .table-col:nth-child(4),
-    .table-col:nth-child(5),
-    .table-row > *:nth-child(4),
-    .table-row > *:nth-child(5) { display: none; }
-    .field-row { grid-template-columns: 1fr; }
-    .pin-card { padding: 32px 24px; }
-  }
-
-  /* ── MOBILE NAV FIX ── */
-  .nav-brand { 
-    display: flex; 
-    align-items: center; 
-    gap: 8px; 
-    min-width: 0;
-    flex-shrink: 1;
-    overflow: hidden;
-  }
-  .nav-brand img { 
-    height: 26px !important; 
-    width: auto; 
-    display: block; 
-    flex-shrink: 0;
-    max-width: 160px;
-  }
-  .nav-actions { 
-    display: flex; 
-    gap: 6px; 
-    flex-shrink: 0;
-    align-items: center;
-  }
-  .nav-subtitle {
-    font-size: 9px !important;
-    letter-spacing: 1.5px !important;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  @media (max-width: 400px) {
-    .nav-brand > div { display: none; }
-    .btn-sm { padding: 8px 10px; font-size: 10px; letter-spacing: 0.5px; }
-  }
-  /* Make dashboard body full width on mobile */
-  .dashboard-body, .form-body { 
-    padding: 16px 12px; 
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-  /* Fix stats grid on small screens */
-  @media (max-width: 380px) {
-    .stats-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
-  }
-  /* Fix table overflow */
-  .employee-table { overflow-x: hidden; width: 100%; }
-  .table-header, .table-row {
-    grid-template-columns: 64px 1fr 100px 70px 70px;
-  }
-  @media (max-width: 480px) {
-    .table-header, .table-row {
-      grid-template-columns: 60px 1fr 90px;
-    }
-    .table-col:nth-child(4), .table-col:nth-child(5),
-    .table-row > div:nth-child(4), .table-row > div:nth-child(5) {
-      display: none;
-    }
-  }
-  /* Fix form field rows on mobile */
-  @media (max-width: 480px) {
-    .field-row { grid-template-columns: 1fr; }
-    .radio-group { flex-wrap: wrap; }
-    .radio-option { min-width: 80px; }
-  }
-  /* Fix pin card on mobile */
-  .pin-card { padding: 32px 20px !important; }
-  .pin-card img { max-width: 260px !important; }
+- { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+font-family: ‘Poppins’, sans-serif;
+background: var(–black);
+color: var(–text);
+min-height: 100vh;
+overflow-x: hidden;
+}
+
+/* ── SCREENS ── */
+.screen { display: none; min-height: 100vh; }
+.screen.active { display: flex; flex-direction: column; }
+
+/* ── PIN SCREEN ── */
+#pin-screen {
+align-items: center;
+justify-content: center;
+background: var(–black);
+padding: 40px 20px;
+position: relative;
+overflow: hidden;
+}
+
+#pin-screen::before {
+content: ‘’;
+position: absolute;
+width: 600px; height: 600px;
+background: radial-gradient(circle, rgba(245,167,53,0.08) 0%, transparent 70%);
+top: 50%; left: 50%;
+transform: translate(-50%, -50%);
+pointer-events: none;
+}
+
+.pin-card {
+background: var(–surface);
+border: 1px solid var(–gold-border);
+border-top: 3px solid var(–gold);
+border-radius: var(–radius-lg);
+padding: 40px 32px;
+width: 100%;
+max-width: 420px;
+text-align: center;
+position: relative;
+z-index: 1;
+}
+
+.logo-block {
+margin-bottom: 32px;
+}
+
+.logo-placeholder {
+width: 72px; height: 72px;
+background: var(–gold-muted);
+border: 2px solid var(–gold-border);
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+margin: 0 auto 16px;
+font-size: 28px;
+}
+
+.brand-name {
+font-family: ‘Chakra Petch’, sans-serif;
+font-size: 22px;
+font-weight: 700;
+color: var(–gold);
+letter-spacing: 2px;
+text-transform: uppercase;
+}
+
+.brand-sub {
+font-size: 11px;
+color: var(–text-muted);
+letter-spacing: 3px;
+text-transform: uppercase;
+margin-top: 4px;
+}
+
+.pin-title {
+font-family: ‘Chakra Petch’, sans-serif;
+font-size: 18px;
+font-weight: 600;
+color: var(–text);
+margin-bottom: 6px;
+}
+
+.pin-sub {
+font-size: 13px;
+color: var(–text-muted);
+margin-bottom: 28px;
+}
+
+.pin-input {
+width: 100%;
+background: var(–surface2);
+border: 1px solid var(–surface4);
+border-radius: var(–radius);
+padding: 14px 16px;
+font-size: 20px;
+letter-spacing: 8px;
+color: var(–text);
+text-align: center;
+outline: none;
+transition: border-color 0.2s;
+margin-bottom: 16px;
+font-family: ‘Chakra Petch’, sans-serif;
+}
+
+.pin-input:focus { border-color: var(–gold); }
+.pin-input.error { border-color: var(–red); animation: shake 0.3s; }
+
+@keyframes shake {
+0%,100% { transform: translateX(0); }
+25% { transform: translateX(-8px); }
+75% { transform: translateX(8px); }
+}
+
+.pin-error {
+color: var(–red);
+font-size: 12px;
+margin-bottom: 12px;
+min-height: 16px;
+}
+
+/* ── BUTTONS ── */
+.btn {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 8px;
+padding: 12px 24px;
+border-radius: var(–radius);
+font-family: ‘Chakra Petch’, sans-serif;
+font-size: 13px;
+font-weight: 600;
+letter-spacing: 1px;
+text-transform: uppercase;
+cursor: pointer;
+border: none;
+transition: all 0.2s;
+text-decoration: none;
+}
+
+.btn-primary {
+background: var(–gold);
+color: var(–black);
+width: 100%;
+}
+.btn-primary:hover { background: var(–gold-light); transform: translateY(-1px); }
+
+.btn-secondary {
+background: transparent;
+color: var(–gold);
+border: 1px solid var(–gold-border);
+}
+.btn-secondary:hover { background: var(–gold-muted); }
+
+.btn-ghost {
+background: var(–surface3);
+color: var(–text);
+border: 1px solid var(–surface4);
+}
+.btn-ghost:hover { background: var(–surface4); }
+
+.btn-sm { padding: 8px 16px; font-size: 11px; }
+.btn-danger { background: rgba(224,82,82,0.15); color: var(–red); border: 1px solid rgba(224,82,82,0.3); }
+
+/* ── TOP NAV ── */
+.top-nav {
+background: var(–surface);
+border-bottom: 1px solid var(–surface3);
+border-top: 2px solid var(–gold);
+padding: 0 12px;
+height: 52px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+position: sticky;
+top: 0;
+z-index: 100;
+overflow: hidden;
+}
+
+.nav-brand {
+display: flex;
+align-items: center;
+gap: 12px;
+}
+
+.nav-logo {
+width: 36px; height: 36px;
+background: var(–gold-muted);
+border: 1px solid var(–gold-border);
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 16px;
+}
+
+.nav-title {
+font-family: ‘Chakra Petch’, sans-serif;
+font-size: 14px;
+font-weight: 700;
+color: var(–gold);
+letter-spacing: 1px;
+text-transform: uppercase;
+}
+
+.nav-subtitle {
+font-size: 10px;
+color: var(–text-muted);
+letter-spacing: 2px;
+text-transform: uppercase;
+}
+
+.nav-actions { display: flex; gap: 8px; align-items: center; }
+
+/* ── DASHBOARD ── */
+#dashboard-screen { background: var(–black); }
+
+.dashboard-body {
+padding: 24px 20px;
+max-width: 900px;
+margin: 0 auto;
+width: 100%;
+}
+
+.stats-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 12px;
+margin-bottom: 20px;
+}
+
+.stat-card {
+background: var(–surface);
+border: 1px solid var(–surface3);
+border-radius: var(–radius);
+padding: 16px;
+}
+
+.stat-label {
+font-size: 10px;
+color: var(–text-muted);
+letter-spacing: 2px;
+text-transform: uppercase;
+margin-bottom: 8px;
+}
+
+.stat-value {
+font-family: ‘Chakra Petch’, sans-serif;
+font-size: 32px;
+font-weight: 700;
+line-height: 1;
+}
+
+.stat-gold { color: var(–gold); }
+.stat-blue { color: var(–blue); }
+.stat-purple { color: #A78BFA; }
+.stat-green { color: var(–green); }
+
+/* ── ALERT CARD ── */
+.alert-card {
+background: var(–surface);
+border: 1px solid rgba(245,167,53,0.4);
+border-radius: var(–radius);
+padding: 16px;
+margin-bottom: 20px;
+}
+
+.alert-header {
+display: flex;
+align-items: center;
+gap: 8px;
+margin-bottom: 12px;
+}
+
+.alert-title {
+font-family: ‘Chakra Petch’, sans-serif;
+font-size: 12px;
+font-weight: 600;
+color: var(–gold);
+letter-spacing: 1px;
+text-transform: uppercase;
+}
+
+.alert-desc {
+font-size: 12px;
+color: var(–text-muted);
+margin-bottom: 12px;
+}
+
+.alert-row {
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 10px 0;
+border-top: 1px solid var(–surface3);
+gap: 8px;
+flex-wrap: wrap;
+}
+
+.alert-id {
+font-family: ‘Chakra Petch’, sans-serif;
+font-size: 12px;
+color: var(–gold);
+font-weight: 600;
+min-width: 60px;
+}
+
+.alert-name { font-size: 13px; font-weight: 500; flex: 1; }
+.alert-role { font-size: 11px; color: var(–text-muted); min-width: 100px; }
+
+.alert-date {
+font-size: 11px;
+color: var(–gold);
+font-weight: 600;
+text-align: right;
+}
+
+/* ── EMPLOYEE TABLE ── */
+.section-header {
+display: flex;
+align-items: center;
+gap: 8px;
+margin-bottom: 12px;
+}
+
+.section-title {
+font-family: ‘Chakra Petch’, sans-serif;
+font-size: 13px;
+font-weight: 600;
+color: var(–text);
+letter-spacing: 1px;
+text-transform: uppercase;
+}
+
+.employee-table {
+background: var(–surface);
+border: 1px solid var(–surface3);
+border-radius: var(–radius);
+overflow: hidden;
+margin-bottom: 20px;
+}
+
+.table-header {
+display: grid;
+grid-template-columns: 80px 1fr 120px 90px 80px;
+padding: 10px 16px;
+background: var(–surface2);
+border-bottom: 1px solid var(–surface3);
+}
+
+.table-col {
+font-size: 10px;
+color: var(–text-dim);
+letter-spacing: 2px;
+text-transform: uppercase;
+font-weight: 500;
+}
+
+.table-row {
+display: grid;
+grid-template-columns: 80px 1fr 120px 90px 80px;
+padding: 12px 16px;
+border-bottom: 1px solid var(–surface2);
+align-items: center;
+transition: background 0.15s;
+cursor: pointer;
+}
+
+.table-row:last-child { border-bottom: none; }
+.table-row:hover { background: var(–surface2); }
+
+.table-id {
+font-family: ‘Chakra Petch’, sans-serif;
+font-size: 12px;
+color: var(–gold);
+font-weight: 600;
+}
+
+.table-name { font-size: 13px; font-weight: 500; }
+.table-role { font-size: 12px; color: var(–text-muted); }
+.table-date { font-size: 12px; color: var(–text-muted); }
+
+.status-badge {
+display: inline-flex;
+align-items: center;
+padding: 3px 8px;
+border-radius: 20px;
+font-size: 10px;
+font-weight: 600;
+letter-spacing: 0.5px;
+text-transform: uppercase;
+}
+
+.status-complete { background: rgba(82,183,136,0.15); color: var(–green); }
+.status-pending { background: rgba(91,143,212,0.15); color: var(–blue); }
+.status-review { background: rgba(167,139,250,0.15); color: #A78BFA; }
+
+.empty-state {
+padding: 40px 20px;
+text-align: center;
+color: var(–text-muted);
+font-size: 13px;
+}
+
+/* ── 90 DAY REVIEW SECTION ── */
+.review-section {
+background: var(–surface);
+border: 1px solid var(–surface3);
+border-radius: var(–radius);
+padding: 16px;
+margin-bottom: 20px;
+}
+
+.review-row {
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 10px 0;
+border-top: 1px solid var(–surface3);
+gap: 8px;
+flex-wrap: wrap;
+}
+
+/* ── FORM SCREEN ── */
+#form-screen { background: var(–black); }
+
+.form-body {
+padding: 24px 20px;
+max-width: 700px;
+margin: 0 auto;
+width: 100%;
+}
+
+.step-indicator {
+display: flex;
+align-items: center;
+gap: 0;
+margin-bottom: 28px;
+}
+
+.step-item {
+display: flex;
+align-items: center;
+flex: 1;
+}
+
+.step-dot {
+width: 28px; height: 28px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-family: ‘Chakra Petch’, sans-serif;
+font-size: 12px;
+font-weight: 700;
+border: 2px solid var(–surface4);
+color: var(–text-muted);
+background: var(–surface2);
+flex-shrink: 0;
+transition: all 0.3s;
+position: relative;
+z-index: 1;
+}
+
+.step-dot.active {
+border-color: var(–gold);
+color: var(–gold);
+background: var(–gold-muted);
+}
+
+.step-dot.done {
+border-color: var(–green);
+color: var(–black);
+background: var(–green);
+}
+
+.step-line {
+flex: 1;
+height: 2px;
+background: var(–surface4);
+margin: 0 -2px;
+transition: background 0.3s;
+}
+
+.step-line.done { background: var(–green); }
+
+.step-label {
+font-size: 10px;
+color: var(–text-muted);
+letter-spacing: 1px;
+text-transform: uppercase;
+text-align: center;
+margin-top: 6px;
+}
+
+.step-label.active { color: var(–gold); }
+
+.step-wrapper {
+display: flex;
+flex-direction: column;
+align-items: center;
+flex: 1;
+}
+
+/* ── FORM CARD ── */
+.form-card {
+background: var(–surface);
+border: 1px solid var(–surface3);
+border-radius: var(–radius-lg);
+overflow: hidden;
+margin-bottom: 16px;
+}
+
+.form-card-header {
+padding: 16px 20px;
+background: var(–surface2);
+border-bottom: 1px solid var(–surface3);
+display: flex;
+align-items: center;
+gap: 10px;
+}
+
+.form-card-icon {
+width: 32px; height: 32px;
+background: var(–gold-muted);
+border: 1px solid var(–gold-border);
+border-radius: 6px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 14px;
+flex-shrink: 0;
+}
+
+.form-card-title {
+font-family: ‘Chakra Petch’, sans-serif;
+font-size: 13px;
+font-weight: 600;
+color: var(–text);
+letter-spacing: 0.5px;
+}
+
+.form-card-sub {
+font-size: 11px;
+color: var(–text-muted);
+margin-top: 2px;
+}
+
+.form-card-body { padding: 20px; }
+
+/* ── FORM FIELDS ── */
+.field-group {
+margin-bottom: 16px;
+}
+
+.field-label {
+display: block;
+font-size: 11px;
+font-weight: 600;
+color: var(–text-muted);
+letter-spacing: 1.5px;
+text-transform: uppercase;
+margin-bottom: 6px;
+}
+
+.field-required { color: var(–red); margin-left: 2px; }
+
+.field-input, .field-select, .field-textarea {
+width: 100%;
+background: var(–surface2);
+border: 1px solid var(–surface4);
+border-radius: var(–radius);
+padding: 11px 14px;
+font-size: 14px;
+color: var(–text);
+font-family: ‘Poppins’, sans-serif;
+outline: none;
+transition: border-color 0.2s;
+-webkit-appearance: none;
+}
+
+.field-input:focus, .field-select:focus, .field-textarea:focus {
+border-color: var(–gold);
+background: var(–surface3);
+}
+
+.field-input.auto-filled {
+border-color: rgba(82,183,136,0.4);
+background: rgba(82,183,136,0.05);
+color: var(–green);
+}
+
+.field-select {
+cursor: pointer;
+background-image: url(“data:image/svg+xml,%3Csvg xmlns=‘http://www.w3.org/2000/svg’ width=‘12’ height=‘8’ viewBox=‘0 0 12 8’%3E%3Cpath d=‘M1 1l5 5 5-5’ stroke=’%23888’ stroke-width=‘1.5’ fill=‘none’ stroke-linecap=‘round’/%3E%3C/svg%3E”);
+background-repeat: no-repeat;
+background-position: right 14px center;
+padding-right: 36px;
+}
+
+.field-hint {
+font-size: 11px;
+color: var(–text-dim);
+margin-top: 4px;
+}
+
+.field-hint.auto { color: rgba(82,183,136,0.7); }
+
+.field-textarea {
+resize: vertical;
+min-height: 80px;
+}
+
+.field-row {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 12px;
+}
+
+/* ── RADIO GROUP ── */
+.radio-group {
+display: flex;
+gap: 10px;
+flex-wrap: wrap;
+}
+
+.radio-option {
+flex: 1;
+min-width: 100px;
+}
+
+.radio-option input { display: none; }
+
+.radio-label {
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 10px 16px;
+background: var(–surface2);
+border: 1px solid var(–surface4);
+border-radius: var(–radius);
+font-size: 13px;
+font-weight: 500;
+color: var(–text-muted);
+cursor: pointer;
+transition: all 0.2s;
+text-align: center;
+}
+
+.radio-option input:checked + .radio-label {
+background: var(–gold-muted);
+border-color: var(–gold);
+color: var(–gold);
+font-weight: 600;
+}
+
+/* ── CHECKBOX ── */
+.checkbox-group { display: flex; flex-direction: column; gap: 10px; }
+
+.checkbox-item {
+display: flex;
+align-items: flex-start;
+gap: 12px;
+padding: 12px 14px;
+background: var(–surface2);
+border: 1px solid var(–surface4);
+border-radius: var(–radius);
+cursor: pointer;
+transition: all 0.2s;
+}
+
+.checkbox-item:hover { border-color: var(–gold-border); }
+.checkbox-item.checked { border-color: var(–gold-border); background: var(–gold-muted); }
+
+.checkbox-item input { display: none; }
+
+.checkbox-box {
+width: 18px; height: 18px;
+border: 2px solid var(–surface4);
+border-radius: 4px;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-shrink: 0;
+margin-top: 1px;
+transition: all 0.2s;
+}
+
+.checkbox-item.checked .checkbox-box {
+background: var(–gold);
+border-color: var(–gold);
+color: var(–black);
+}
+
+.checkbox-text { font-size: 13px; font-weight: 500; }
+.checkbox-desc { font-size: 11px; color: var(–text-muted); margin-top: 2px; }
+
+/* ── SECTION DIVIDER ── */
+.section-divider {
+font-size: 10px;
+font-weight: 600;
+color: var(–gold);
+letter-spacing: 2px;
+text-transform: uppercase;
+padding-bottom: 10px;
+border-bottom: 1px solid var(–gold-border);
+margin-bottom: 16px;
+margin-top: 4px;
+}
+
+/* ── REVIEW SCREEN ── */
+.review-card {
+background: var(–surface);
+border: 1px solid var(–surface3);
+border-radius: var(–radius-lg);
+overflow: hidden;
+margin-bottom: 16px;
+}
+
+.review-card-header {
+padding: 14px 20px;
+background: var(–surface2);
+border-bottom: 1px solid var(–surface3);
+}
+
+.review-card-title {
+font-family: ‘Chakra Petch’, sans-serif;
+font-size: 12px;
+font-weight: 600;
+color: var(–gold);
+letter-spacing: 1px;
+text-transform: uppercase;
+}
+
+.review-table { width: 100%; }
+
+.review-row-item {
+display: flex;
+padding: 10px 20px;
+border-bottom: 1px solid var(–surface2);
+gap: 16px;
+}
+
+.review-row-item:last-child { border-bottom: none; }
+
+.review-key {
+font-size: 11px;
+color: var(–text-muted);
+width: 140px;
+flex-shrink: 0;
+padding-top: 1px;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+}
+
+.review-val {
+font-size: 13px;
+font-weight: 500;
+color: var(–text);
+flex: 1;
+}
+
+/* ── SUCCESS SCREEN ── */
+#success-screen {
+align-items: center;
+justify-content: center;
+padding: 40px 20px;
+background: var(–black);
+}
+
+.success-card {
+background: var(–surface);
+border: 1px solid var(–gold-border);
+border-radius: var(–radius-lg);
+padding: 40px 32px;
+max-width: 480px;
+width: 100%;
+text-align: center;
+}
+
+.success-icon {
+width: 64px; height: 64px;
+background: rgba(82,183,136,0.15);
+border: 2px solid var(–green);
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+margin: 0 auto 20px;
+font-size: 28px;
+}
+
+.success-title {
+font-family: ‘Chakra Petch’, sans-serif;
+font-size: 20px;
+font-weight: 700;
+color: var(–text);
+margin-bottom: 6px;
+}
+
+.success-id {
+font-family: ‘Chakra Petch’, sans-serif;
+font-size: 14px;
+color: var(–gold);
+margin-bottom: 24px;
+}
+
+.success-notice {
+background: rgba(82,183,136,0.08);
+border: 1px solid rgba(82,183,136,0.25);
+border-radius: var(–radius);
+padding: 14px 16px;
+text-align: left;
+margin-bottom: 12px;
+}
+
+.notice-label {
+font-size: 10px;
+font-weight: 700;
+color: var(–green);
+letter-spacing: 2px;
+text-transform: uppercase;
+margin-bottom: 4px;
+}
+
+.notice-text { font-size: 13px; color: var(–text-muted); line-height: 1.5; }
+
+.action-list {
+background: var(–surface2);
+border: 1px solid var(–surface3);
+border-radius: var(–radius);
+padding: 14px 16px;
+text-align: left;
+margin-bottom: 20px;
+}
+
+.action-list-title {
+font-size: 10px;
+font-weight: 700;
+color: var(–gold);
+letter-spacing: 2px;
+text-transform: uppercase;
+margin-bottom: 10px;
+}
+
+.action-item {
+display: flex;
+align-items: flex-start;
+gap: 10px;
+padding: 6px 0;
+font-size: 12px;
+color: var(–text-muted);
+border-bottom: 1px solid var(–surface3);
+}
+
+.action-item:last-child { border-bottom: none; }
+.action-num {
+font-family: ‘Chakra Petch’, sans-serif;
+color: var(–gold);
+font-size: 11px;
+font-weight: 700;
+min-width: 16px;
+margin-top: 1px;
+}
+
+.calendar-btn {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 8px;
+width: 100%;
+padding: 12px;
+background: rgba(91,143,212,0.1);
+border: 1px solid rgba(91,143,212,0.3);
+border-radius: var(–radius);
+color: var(–blue);
+font-family: ‘Chakra Petch’, sans-serif;
+font-size: 12px;
+font-weight: 600;
+letter-spacing: 1px;
+text-transform: uppercase;
+cursor: pointer;
+text-decoration: none;
+margin-bottom: 12px;
+transition: all 0.2s;
+}
+
+.calendar-btn:hover { background: rgba(91,143,212,0.2); }
+
+.success-actions { display: flex; flex-direction: column; gap: 10px; }
+
+/* ── DETAIL MODAL ── */
+.modal-overlay {
+display: none;
+position: fixed;
+inset: 0;
+background: rgba(0,0,0,0.8);
+z-index: 200;
+align-items: flex-end;
+justify-content: center;
+padding: 20px;
+}
+
+.modal-overlay.active { display: flex; }
+
+.modal {
+background: var(–surface);
+border: 1px solid var(–surface3);
+border-radius: var(–radius-lg);
+width: 100%;
+max-width: 600px;
+max-height: 80vh;
+overflow-y: auto;
+}
+
+.modal-header {
+padding: 16px 20px;
+background: var(–surface2);
+border-bottom: 1px solid var(–surface3);
+display: flex;
+align-items: center;
+justify-content: space-between;
+position: sticky;
+top: 0;
+}
+
+.modal-title {
+font-family: ‘Chakra Petch’, sans-serif;
+font-size: 14px;
+font-weight: 600;
+color: var(–gold);
+}
+
+.modal-close {
+background: none;
+border: none;
+color: var(–text-muted);
+font-size: 20px;
+cursor: pointer;
+padding: 4px;
+line-height: 1;
+}
+
+.modal-body { padding: 20px; }
+
+/* ── FORM NAV ── */
+.form-nav {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 16px 0;
+margin-top: 8px;
+}
+
+/* ── CONFIG BLOCK ── */
+/*
+═══════════════════════════════════════════════════════
+CONFIGURATION BLOCK — EDIT THIS SECTION TO MAKE CHANGES
+All dropdown options, defaults, and settings are here.
+═══════════════════════════════════════════════════════
+*/
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(–surface); }
+::-webkit-scrollbar-thumb { background: var(–surface4); border-radius: 3px; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 480px) {
+.table-header, .table-row {
+grid-template-columns: 70px 1fr 90px;
+}
+.table-col:nth-child(4),
+.table-col:nth-child(5),
+.table-row > *:nth-child(4),
+.table-row > *:nth-child(5) { display: none; }
+.field-row { grid-template-columns: 1fr; }
+.pin-card { padding: 32px 24px; }
+}
+
+/* ── MOBILE NAV FIX ── */
+.nav-brand {
+display: flex;
+align-items: center;
+gap: 8px;
+min-width: 0;
+flex-shrink: 1;
+overflow: hidden;
+}
+.nav-brand img {
+height: 26px !important;
+width: auto;
+display: block;
+flex-shrink: 0;
+max-width: 160px;
+}
+.nav-actions {
+display: flex;
+gap: 6px;
+flex-shrink: 0;
+align-items: center;
+}
+.nav-subtitle {
+font-size: 9px !important;
+letter-spacing: 1.5px !important;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+@media (max-width: 400px) {
+.nav-brand > div { display: none; }
+.btn-sm { padding: 8px 10px; font-size: 10px; letter-spacing: 0.5px; }
+}
+/* Make dashboard body full width on mobile */
+.dashboard-body, .form-body {
+padding: 16px 12px;
+width: 100%;
+max-width: 100%;
+overflow-x: hidden;
+}
+/* Fix stats grid on small screens */
+@media (max-width: 380px) {
+.stats-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+}
+/* Fix table overflow */
+.employee-table { overflow-x: hidden; width: 100%; }
+.table-header, .table-row {
+grid-template-columns: 64px 1fr 100px 70px 70px;
+}
+@media (max-width: 480px) {
+.table-header, .table-row {
+grid-template-columns: 60px 1fr 90px;
+}
+.table-col:nth-child(4), .table-col:nth-child(5),
+.table-row > div:nth-child(4), .table-row > div:nth-child(5) {
+display: none;
+}
+}
+/* Fix form field rows on mobile */
+@media (max-width: 480px) {
+.field-row { grid-template-columns: 1fr; }
+.radio-group { flex-wrap: wrap; }
+.radio-option { min-width: 80px; }
+}
+/* Fix pin card on mobile */
+.pin-card { padding: 32px 20px !important; }
+.pin-card img { max-width: 260px !important; }
 
 </style>
 </head>
@@ -1089,6 +1090,7 @@
 <!-- ══════════════════════════════════════════
      CONFIGURATION BLOCK — EDIT HERE FOR CHANGES
      ══════════════════════════════════════════ -->
+
 <script>
 const CONFIG = {
   pin: "2026",
@@ -1201,6 +1203,7 @@ const CONFIG = {
 </script>
 
 <!-- ══════════ PIN SCREEN ══════════ -->
+
 <div id="pin-screen" class="screen active">
   <div class="pin-card">
     <div class="logo-block">
@@ -1231,6 +1234,7 @@ const CONFIG = {
 </div>
 
 <!-- ══════════ DASHBOARD SCREEN ══════════ -->
+
 <div id="dashboard-screen" class="screen">
   <nav class="top-nav">
     <div class="nav-brand">
@@ -1266,52 +1270,56 @@ const CONFIG = {
       </div>
     </div>
 
-    <!-- Insurance Enrollment Queue -->
-    <div id="insurance-queue-section" style="display:none;">
-      <div class="alert-card">
-        <div class="alert-header">
-          <span>🛡</span>
-          <div>
-            <div class="alert-title">Insurance Enrollment Queue</div>
-          </div>
-        </div>
-        <div class="alert-desc" id="insurance-queue-desc"></div>
-        <div id="insurance-queue-list"></div>
+```
+<!-- Insurance Enrollment Queue -->
+<div id="insurance-queue-section" style="display:none;">
+  <div class="alert-card">
+    <div class="alert-header">
+      <span>🛡</span>
+      <div>
+        <div class="alert-title">Insurance Enrollment Queue</div>
       </div>
     </div>
+    <div class="alert-desc" id="insurance-queue-desc"></div>
+    <div id="insurance-queue-list"></div>
+  </div>
+</div>
 
-    <!-- 90 Day Reviews -->
-    <div id="review-queue-section" style="display:none;">
-      <div class="section-header">
-        <span style="font-size:16px;">📅</span>
-        <div class="section-title">Upcoming 90-Day Reviews</div>
-      </div>
-      <div class="review-section">
-        <div id="review-queue-list"></div>
-      </div>
-    </div>
+<!-- 90 Day Reviews -->
+<div id="review-queue-section" style="display:none;">
+  <div class="section-header">
+    <span style="font-size:16px;">📅</span>
+    <div class="section-title">Upcoming 90-Day Reviews</div>
+  </div>
+  <div class="review-section">
+    <div id="review-queue-list"></div>
+  </div>
+</div>
 
-    <!-- All Employees -->
-    <div class="section-header">
-      <span style="font-size:16px;">👥</span>
-      <div class="section-title">All Employees</div>
-    </div>
-    <div class="employee-table">
-      <div class="table-header">
-        <div class="table-col">ID</div>
-        <div class="table-col">Name</div>
-        <div class="table-col">Job Title</div>
-        <div class="table-col">Hire Date</div>
-        <div class="table-col">Status</div>
-      </div>
-      <div id="employee-list">
-        <div class="empty-state">No employees yet. Add your first hire above.</div>
-      </div>
-    </div>
+<!-- All Employees -->
+<div class="section-header">
+  <span style="font-size:16px;">👥</span>
+  <div class="section-title">All Employees</div>
+</div>
+<div class="employee-table">
+  <div class="table-header">
+    <div class="table-col">ID</div>
+    <div class="table-col">Name</div>
+    <div class="table-col">Job Title</div>
+    <div class="table-col">Hire Date</div>
+    <div class="table-col">Status</div>
+  </div>
+  <div id="employee-list">
+    <div class="empty-state">No employees yet. Add your first hire above.</div>
+  </div>
+</div>
+```
+
   </div>
 </div>
 
 <!-- ══════════ FORM SCREEN ══════════ -->
+
 <div id="form-screen" class="screen">
   <nav class="top-nav">
     <div class="nav-brand">
@@ -1348,369 +1356,377 @@ const CONFIG = {
       </div>
     </div>
 
-    <!-- STEP 1 -->
-    <div id="step-1">
+```
+<!-- STEP 1 -->
+<div id="step-1">
 
-      <!-- Identity -->
-      <div class="form-card">
-        <div class="form-card-header">
-          <div class="form-card-icon">👤</div>
-          <div>
-            <div class="form-card-title">New Hire Details</div>
-            <div class="form-card-sub">Identity, job, pay, equipment</div>
-          </div>
-        </div>
-        <div class="form-card-body">
-          <div class="section-divider">Identity</div>
-          <div class="field-row">
-            <div class="field-group">
-              <label class="field-label">First Name<span class="field-required">*</span></label>
-              <input type="text" class="field-input" id="f-first" placeholder="First">
-            </div>
-            <div class="field-group">
-              <label class="field-label">Last Name<span class="field-required">*</span></label>
-              <input type="text" class="field-input" id="f-last" placeholder="Last">
-            </div>
-          </div>
-          <div class="field-row">
-            <div class="field-group">
-              <label class="field-label">Employee Email</label>
-              <input type="email" class="field-input" id="f-email" placeholder="employee@email.com">
-            </div>
-            <div class="field-group">
-              <label class="field-label">Cell Phone</label>
-              <input type="tel" class="field-input" id="f-phone" placeholder="(317) 000-0000">
-            </div>
-          </div>
-          <div class="field-hint" style="margin-bottom:4px;">At least one required — email or cell. QBO invite can be sent by text.</div>
-
-          <div class="section-divider">Job & Role</div>
-          <div class="field-hint" style="margin-bottom:12px;">Selecting a job title auto-fills department, workers comp class, occ code, and billable status.</div>
-          <div class="field-group">
-            <label class="field-label">Job Title<span class="field-required">*</span></label>
-            <select class="field-select" id="f-title" onchange="autoFillFromTitle()">
-              <option value="">Select job title</option>
-            </select>
-          </div>
-          <div class="field-row">
-            <div class="field-group">
-              <label class="field-label">Department</label>
-              <select class="field-select" id="f-dept">
-                <option value="">Select department</option>
-              </select>
-            </div>
-            <div class="field-group">
-              <label class="field-label">Manager</label>
-              <input type="text" class="field-input" id="f-manager" placeholder="e.g., Dave Brawner">
-              <div class="field-hint">Direct supervisor for this employee</div>
-            </div>
-          </div>
-          <div class="field-row">
-            <div class="field-group">
-              <label class="field-label">Workers Comp Class</label>
-              <select class="field-select" id="f-wc">
-                <option value="">Select or auto-fill</option>
-                <option>8810 — Clerical</option>
-                <option>6217 — Excavation / Trenching</option>
-              </select>
-              <div class="field-hint auto" id="wc-hint" style="display:none;">✓ Auto-filled from job title</div>
-            </div>
-            <div class="field-group">
-              <label class="field-label">Occupational Code</label>
-              <input type="text" class="field-input" id="f-occ" placeholder="e.g., 47-1011">
-              <div class="field-hint auto" id="occ-hint" style="display:none;">✓ Auto-filled from job title</div>
-            </div>
-          </div>
-
-          <!-- Billable -->
-          <div class="field-group">
-            <div class="checkbox-item" id="billable-check" onclick="toggleCheck(this,'f-billable')">
-              <input type="checkbox" id="f-billable">
-              <div class="checkbox-box" id="billable-box">✓</div>
-              <div>
-                <div class="checkbox-text">Billable by Default</div>
-                <div class="checkbox-desc">When ON: all time entries for this employee are automatically marked billable. Turn OFF for office staff and overhead roles.</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="section-divider">Pay</div>
-          <div class="field-hint" style="margin-bottom:12px;">Enter pay information once. Billing rate is optional for job costing.</div>
-          <div class="field-group">
-            <label class="field-label">Pay Type<span class="field-required">*</span></label>
-            <div class="radio-group">
-              <div class="radio-option">
-                <input type="radio" name="paytype" id="pt-hourly" value="Hourly" onchange="togglePayFields()" checked>
-                <label class="radio-label" for="pt-hourly">Hourly</label>
-              </div>
-              <div class="radio-option">
-                <input type="radio" name="paytype" id="pt-salary" value="Salary" onchange="togglePayFields()">
-                <label class="radio-label" for="pt-salary">Salary</label>
-              </div>
-            </div>
-          </div>
-          <div id="hourly-fields">
-            <div class="field-row">
-              <div class="field-group">
-                <label class="field-label">Hourly Rate ($)<span class="field-required">*</span></label>
-                <input type="number" class="field-input" id="f-hourly" placeholder="0.00" step="0.01" oninput="autoFillBilling()">
-              </div>
-              <div class="field-group">
-                <label class="field-label">Billing Rate / Hr ($)</label>
-                <input type="number" class="field-input" id="f-billing" placeholder="0.00" step="0.01">
-                <div class="field-hint auto">Auto-filled at 1.5x hourly rate — editable</div>
-              </div>
-            </div>
-          </div>
-          <div id="salary-fields" style="display:none;">
-            <div class="field-group">
-              <label class="field-label">Annual Salary ($)<span class="field-required">*</span></label>
-              <input type="number" class="field-input" id="f-salary" placeholder="0.00" step="1000">
-            </div>
-          </div>
-          <div class="field-group">
-            <label class="field-label">Pay Schedule</label>
-            <input type="text" class="field-input" id="f-payschedule" value="Every Friday" readonly style="color:var(--green);">
-          </div>
-
-          <div class="section-divider">Hire Details</div>
-          <div class="field-row">
-            <div class="field-group">
-              <label class="field-label">Hire Date<span class="field-required">*</span></label>
-              <input type="date" class="field-input" id="f-hiredate">
-            </div>
-            <div class="field-group">
-              <label class="field-label">Work Location</label>
-              <input type="text" class="field-input" id="f-location" value="1425 Iron Liege Rd, Indianapolis, IN 46217">
-            </div>
-          </div>
-
-
-
-          <div class="section-divider">Benefits — Verbal Confirmation</div>
-          <div class="field-hint" style="margin-bottom:12px;">Check what the candidate verbally confirmed interest in during the interview.</div>
-          <div class="checkbox-group">
-            <div class="checkbox-item" id="bene-401k-check" onclick="toggleCheck(this,'f-401k')">
-              <input type="checkbox" id="f-401k">
-              <div class="checkbox-box" id="bene-401k-box">✓</div>
-              <div>
-                <div class="checkbox-text">401(k) — Interested</div>
-                <div class="checkbox-desc">Candidate verbally confirmed interest in enrolling in the company 401(k) plan.</div>
-              </div>
-            </div>
-            <div class="checkbox-item" id="bene-ins-check" onclick="toggleCheck(this,'f-bene-ins')">
-              <input type="checkbox" id="f-bene-ins">
-              <div class="checkbox-box" id="bene-ins-box">✓</div>
-              <div>
-                <div class="checkbox-text">Insurance Bundle — Interested</div>
-                <div class="checkbox-desc">Candidate verbally confirmed interest in the bundle package: life, medical, dental, and vision insurance.</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="section-divider" style="margin-top:20px;">Equipment & Asset Assignment</div>
-          <div class="checkbox-group">
-            <div class="checkbox-item" id="ipad-check" onclick="toggleCheck(this,'f-ipad')">
-              <input type="checkbox" id="f-ipad">
-              <div class="checkbox-box" id="ipad-box">✓</div>
-              <div>
-                <div class="checkbox-text">Company iPad</div>
-                <div class="checkbox-desc">Assign an iPad to this employee</div>
-              </div>
-            </div>
-            <div class="checkbox-item" id="card-check" onclick="toggleCheck(this,'f-card')">
-              <input type="checkbox" id="f-card">
-              <div class="checkbox-box" id="card-box">✓</div>
-              <div>
-                <div class="checkbox-text">Company Credit Card</div>
-                <div class="checkbox-desc">Assign a company card</div>
-              </div>
-            </div>
-            <div class="checkbox-item" id="vehicle-check" onclick="toggleCheck(this,'f-vehicle')">
-              <input type="checkbox" id="f-vehicle">
-              <div class="checkbox-box" id="vehicle-box">✓</div>
-              <div>
-                <div class="checkbox-text">Company Vehicle</div>
-                <div class="checkbox-desc">Assign a company vehicle</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="section-divider" style="margin-top:20px;">Notes</div>
-          <div class="field-group">
-            <label class="field-label">Internal Notes</label>
-            <textarea class="field-textarea" id="f-notes" placeholder="Special arrangements, equipment notes, referral info, anything else relevant to this hire..."></textarea>
-            <div class="field-hint">Visible to HR only — not shared with employee</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="form-nav">
-        <button class="btn btn-ghost" onclick="showDashboard()">← Cancel</button>
-        <button class="btn btn-primary" onclick="goToStep(2)">Next →</button>
+  <!-- Identity -->
+  <div class="form-card">
+    <div class="form-card-header">
+      <div class="form-card-icon">👤</div>
+      <div>
+        <div class="form-card-title">New Hire Details</div>
+        <div class="form-card-sub">Identity, job, pay, equipment</div>
       </div>
     </div>
-
-    <!-- STEP 2: CF Setup -->
-    <div id="step-2" style="display:none;">
-      <div class="form-card">
-        <div class="form-card-header">
-          <div class="form-card-icon">🏗</div>
-          <div>
-            <div class="form-card-title">Contractor Foreman Setup</div>
-            <div class="form-card-sub">Login access, crew assignment, and project visibility</div>
-          </div>
+    <div class="form-card-body">
+      <div class="section-divider">Identity</div>
+      <div class="field-row">
+        <div class="field-group">
+          <label class="field-label">First Name<span class="field-required">*</span></label>
+          <input type="text" class="field-input" id="f-first" placeholder="First">
         </div>
-        <div class="form-card-body">
-          <div class="section-divider">Crew & Access</div>
-          <div class="field-row">
-            <div class="field-group">
-              <label class="field-label">Crew Assignment</label>
-              <select class="field-select" id="f-crew">
-                <option value="">Select crew</option>
-              </select>
-            </div>
-            <div class="field-group">
-              <label class="field-label">CF Role</label>
-              <select class="field-select" id="f-cfrole">
-                <option value="">Select CF role</option>
-              </select>
-            </div>
-          </div>
+        <div class="field-group">
+          <label class="field-label">Last Name<span class="field-required">*</span></label>
+          <input type="text" class="field-input" id="f-last" placeholder="Last">
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field-group">
+          <label class="field-label">Employee Email</label>
+          <input type="email" class="field-input" id="f-email" placeholder="employee@email.com">
+        </div>
+        <div class="field-group">
+          <label class="field-label">Cell Phone</label>
+          <input type="tel" class="field-input" id="f-phone" placeholder="(317) 000-0000">
+        </div>
+      </div>
+      <div class="field-hint" style="margin-bottom:4px;">At least one required — email or cell. QBO invite can be sent by text.</div>
 
-          <div class="section-divider">Login Details</div>
-          <div class="field-group">
-            <label class="field-label">Login Email</label>
-            <input type="email" class="field-input" id="f-login" placeholder="Auto-filled from employee email">
-            <div class="field-hint auto">Auto-filled from employee email above — editable override</div>
-          </div>
-
-          <div class="section-divider">Access Settings</div>
-          <div class="checkbox-group">
-            <div class="checkbox-item" id="login-check" onclick="toggleCheck(this,'f-login-access')">
-              <input type="checkbox" id="f-login-access">
-              <div class="checkbox-box" id="login-box">✓</div>
-              <div>
-                <div class="checkbox-text">Allow Login Access</div>
-                <div class="checkbox-desc">Employee can clock in/out and use the CF app</div>
-              </div>
-            </div>
-            <div class="checkbox-item" id="timecard-check" onclick="toggleCheck(this,'f-timecard')">
-              <input type="checkbox" id="f-timecard">
-              <div class="checkbox-box" id="timecard-box">✓</div>
-              <div>
-                <div class="checkbox-text">Take Directly to Timecard</div>
-                <div class="checkbox-desc">Opens timecard immediately upon login</div>
-              </div>
-            </div>
-            <div class="checkbox-item" id="schedule-check" onclick="toggleCheck(this,'f-schedule')">
-              <input type="checkbox" id="f-schedule">
-              <div class="checkbox-box" id="schedule-box">✓</div>
-              <div>
-                <div class="checkbox-text">Show in Crew Schedule</div>
-                <div class="checkbox-desc">Employee appears on the crew scheduling board</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="section-divider" style="margin-top:20px;">Project Visibility</div>
-          <div class="field-group">
-            <label class="field-label">Viewable Projects</label>
-            <div class="radio-group">
-              <div class="radio-option">
-                <input type="radio" name="visibility" id="vis-all" value="All Projects" checked>
-                <label class="radio-label" for="vis-all">All Projects</label>
-              </div>
-              <div class="radio-option">
-                <input type="radio" name="visibility" id="vis-assigned" value="Assigned Only">
-                <label class="radio-label" for="vis-assigned">Assigned Only</label>
-              </div>
-            </div>
-          </div>
-
-          <div class="section-divider">Default Cost Code</div>
-          <div class="field-group">
-            <label class="field-label">Default Cost Code</label>
-            <select class="field-select" id="f-costcode">
-              <option value="">Select cost code (optional)</option>
-            </select>
-            <div class="field-hint">Applied to new time entries by default</div>
-          </div>
-
-
+      <div class="section-divider">Job & Role</div>
+      <div class="field-hint" style="margin-bottom:12px;">Selecting a job title auto-fills department, workers comp class, occ code, and billable status.</div>
+      <div class="field-group">
+        <label class="field-label">Job Title<span class="field-required">*</span></label>
+        <select class="field-select" id="f-title" onchange="autoFillFromTitle()">
+          <option value="">Select job title</option>
+        </select>
+      </div>
+      <div class="field-row">
+        <div class="field-group">
+          <label class="field-label">Department</label>
+          <select class="field-select" id="f-dept">
+            <option value="">Select department</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Manager</label>
+          <input type="text" class="field-input" id="f-manager" placeholder="e.g., Dave Brawner">
+          <div class="field-hint">Direct supervisor for this employee</div>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field-group">
+          <label class="field-label">Workers Comp Class</label>
+          <select class="field-select" id="f-wc">
+            <option value="">Select or auto-fill</option>
+            <option>8810 — Clerical</option>
+            <option>6217 — Excavation / Trenching</option>
+          </select>
+          <div class="field-hint auto" id="wc-hint" style="display:none;">✓ Auto-filled from job title</div>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Occupational Code</label>
+          <input type="text" class="field-input" id="f-occ" placeholder="e.g., 47-1011">
+          <div class="field-hint auto" id="occ-hint" style="display:none;">✓ Auto-filled from job title</div>
         </div>
       </div>
 
-      <div class="form-nav">
-        <button class="btn btn-ghost" onclick="goToStep(1)">← Previous</button>
-        <button class="btn btn-primary" onclick="goToStep(3)">Next →</button>
+      <!-- Billable -->
+      <div class="field-group">
+        <div class="checkbox-item" id="billable-check" onclick="toggleCheck(this,'f-billable')">
+          <input type="checkbox" id="f-billable">
+          <div class="checkbox-box" id="billable-box">✓</div>
+          <div>
+            <div class="checkbox-text">Billable by Default</div>
+            <div class="checkbox-desc">When ON: all time entries for this employee are automatically marked billable. Turn OFF for office staff and overhead roles.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-divider">Pay</div>
+      <div class="field-hint" style="margin-bottom:12px;">Enter pay information once. Billing rate is optional for job costing.</div>
+      <div class="field-group">
+        <label class="field-label">Pay Type<span class="field-required">*</span></label>
+        <div class="radio-group">
+          <div class="radio-option">
+            <input type="radio" name="paytype" id="pt-hourly" value="Hourly" onchange="togglePayFields()" checked>
+            <label class="radio-label" for="pt-hourly">Hourly</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" name="paytype" id="pt-salary" value="Salary" onchange="togglePayFields()">
+            <label class="radio-label" for="pt-salary">Salary</label>
+          </div>
+        </div>
+      </div>
+      <div id="hourly-fields">
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Hourly Rate ($)<span class="field-required">*</span></label>
+            <input type="number" class="field-input" id="f-hourly" placeholder="0.00" step="0.01" oninput="autoFillBilling()">
+          </div>
+          <div class="field-group">
+            <label class="field-label">Billing Rate / Hr ($)</label>
+            <input type="number" class="field-input" id="f-billing" placeholder="0.00" step="0.01">
+            <div class="field-hint auto">Auto-filled at 1.5x hourly rate — editable</div>
+          </div>
+        </div>
+      </div>
+      <div id="salary-fields" style="display:none;">
+        <div class="field-group">
+          <label class="field-label">Annual Salary ($)<span class="field-required">*</span></label>
+          <input type="number" class="field-input" id="f-salary" placeholder="0.00" step="1000">
+        </div>
+      </div>
+      <div class="field-group">
+        <label class="field-label">Pay Schedule</label>
+        <input type="text" class="field-input" id="f-payschedule" value="Every Friday" readonly style="color:var(--green);">
+      </div>
+
+      <div class="section-divider">Hire Details</div>
+      <div class="field-row">
+        <div class="field-group">
+          <label class="field-label">Hire Date<span class="field-required">*</span></label>
+          <input type="date" class="field-input" id="f-hiredate">
+        </div>
+        <div class="field-group">
+          <label class="field-label">Work Location</label>
+          <input type="text" class="field-input" id="f-location" value="1425 Iron Liege Rd, Indianapolis, IN 46217">
+        </div>
+      </div>
+
+
+
+      <div class="section-divider">Benefits — Verbal Confirmation</div>
+      <div class="field-hint" style="margin-bottom:12px;">Check what the candidate verbally confirmed interest in during the interview.</div>
+      <div class="checkbox-group">
+        <div class="checkbox-item" id="bene-401k-check" onclick="toggleCheck(this,'f-401k')">
+          <input type="checkbox" id="f-401k">
+          <div class="checkbox-box" id="bene-401k-box">✓</div>
+          <div>
+            <div class="checkbox-text">401(k) — Interested</div>
+            <div class="checkbox-desc">Candidate verbally confirmed interest in enrolling in the company 401(k) plan.</div>
+          </div>
+        </div>
+        <div class="checkbox-item" id="bene-ins-check" onclick="toggleCheck(this,'f-bene-ins')">
+          <input type="checkbox" id="f-bene-ins">
+          <div class="checkbox-box" id="bene-ins-box">✓</div>
+          <div>
+            <div class="checkbox-text">Insurance Bundle — Interested</div>
+            <div class="checkbox-desc">Candidate verbally confirmed interest in the bundle package: life, medical, dental, and vision insurance.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-divider" style="margin-top:20px;">Equipment & Asset Assignment</div>
+      <div class="checkbox-group">
+        <div class="checkbox-item" id="ipad-check" onclick="toggleCheck(this,'f-ipad')">
+          <input type="checkbox" id="f-ipad">
+          <div class="checkbox-box" id="ipad-box">✓</div>
+          <div>
+            <div class="checkbox-text">Company iPad</div>
+            <div class="checkbox-desc">Assign an iPad to this employee</div>
+          </div>
+        </div>
+        <div class="checkbox-item" id="card-check" onclick="toggleCheck(this,'f-card')">
+          <input type="checkbox" id="f-card">
+          <div class="checkbox-box" id="card-box">✓</div>
+          <div>
+            <div class="checkbox-text">Company Credit Card</div>
+            <div class="checkbox-desc">Assign a company card</div>
+          </div>
+        </div>
+        <div class="checkbox-item" id="vehicle-check" onclick="toggleCheck(this,'f-vehicle')">
+          <input type="checkbox" id="f-vehicle">
+          <div class="checkbox-box" id="vehicle-box">✓</div>
+          <div>
+            <div class="checkbox-text">Company Vehicle</div>
+            <div class="checkbox-desc">Assign a company vehicle</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-divider" style="margin-top:20px;">Notes</div>
+      <div class="field-group">
+        <label class="field-label">Internal Notes</label>
+        <textarea class="field-textarea" id="f-notes" placeholder="Special arrangements, equipment notes, referral info, anything else relevant to this hire..."></textarea>
+        <div class="field-hint">Visible to HR only — not shared with employee</div>
       </div>
     </div>
+  </div>
 
-    <!-- STEP 3: Review & Send -->
-    <div id="step-3" style="display:none;">
-      <div class="review-card">
-        <div class="review-card-header" style="background:var(--surface2);display:flex;align-items:center;gap:8px;">
-          <span style="font-size:18px;">📋</span>
-          <div>
-            <div class="review-card-title">New Hire Summary</div>
-            <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">Review all details before submitting</div>
-          </div>
-        </div>
-        <div id="review-content"></div>
-      </div>
+  <div class="form-nav">
+    <button class="btn btn-ghost" onclick="showDashboard()">← Cancel</button>
+    <button class="btn btn-primary" onclick="goToStep(2)">Next →</button>
+  </div>
+</div>
 
-      <div class="form-nav">
-        <button class="btn btn-ghost" onclick="goToStep(2)">← Previous</button>
-        <button class="btn btn-primary" onclick="submitForm()">✓ Submit & Notify HR</button>
+<!-- STEP 2: CF Setup -->
+<div id="step-2" style="display:none;">
+  <div class="form-card">
+    <div class="form-card-header">
+      <div class="form-card-icon">🏗</div>
+      <div>
+        <div class="form-card-title">Contractor Foreman Setup</div>
+        <div class="form-card-sub">Login access, crew assignment, and project visibility</div>
       </div>
     </div>
+    <div class="form-card-body">
+      <div class="section-divider">Crew & Access</div>
+      <div class="field-row">
+        <div class="field-group">
+          <label class="field-label">Crew Assignment</label>
+          <select class="field-select" id="f-crew">
+            <option value="">Select crew</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label class="field-label">CF Role</label>
+          <select class="field-select" id="f-cfrole">
+            <option value="">Select CF role</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="section-divider">Login Details</div>
+      <div class="field-group">
+        <label class="field-label">Login Email</label>
+        <input type="email" class="field-input" id="f-login" placeholder="Auto-filled from employee email">
+        <div class="field-hint auto">Auto-filled from employee email above — editable override</div>
+      </div>
+
+      <div class="section-divider">Access Settings</div>
+      <div class="checkbox-group">
+        <div class="checkbox-item" id="login-check" onclick="toggleCheck(this,'f-login-access')">
+          <input type="checkbox" id="f-login-access">
+          <div class="checkbox-box" id="login-box">✓</div>
+          <div>
+            <div class="checkbox-text">Allow Login Access</div>
+            <div class="checkbox-desc">Employee can clock in/out and use the CF app</div>
+          </div>
+        </div>
+        <div class="checkbox-item" id="timecard-check" onclick="toggleCheck(this,'f-timecard')">
+          <input type="checkbox" id="f-timecard">
+          <div class="checkbox-box" id="timecard-box">✓</div>
+          <div>
+            <div class="checkbox-text">Take Directly to Timecard</div>
+            <div class="checkbox-desc">Opens timecard immediately upon login</div>
+          </div>
+        </div>
+        <div class="checkbox-item" id="schedule-check" onclick="toggleCheck(this,'f-schedule')">
+          <input type="checkbox" id="f-schedule">
+          <div class="checkbox-box" id="schedule-box">✓</div>
+          <div>
+            <div class="checkbox-text">Show in Crew Schedule</div>
+            <div class="checkbox-desc">Employee appears on the crew scheduling board</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-divider" style="margin-top:20px;">Project Visibility</div>
+      <div class="field-group">
+        <label class="field-label">Viewable Projects</label>
+        <div class="radio-group">
+          <div class="radio-option">
+            <input type="radio" name="visibility" id="vis-all" value="All Projects" checked>
+            <label class="radio-label" for="vis-all">All Projects</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" name="visibility" id="vis-assigned" value="Assigned Only">
+            <label class="radio-label" for="vis-assigned">Assigned Only</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-divider">Default Cost Code</div>
+      <div class="field-group">
+        <label class="field-label">Default Cost Code</label>
+        <select class="field-select" id="f-costcode">
+          <option value="">Select cost code (optional)</option>
+        </select>
+        <div class="field-hint">Applied to new time entries by default</div>
+      </div>
+
+
+    </div>
+  </div>
+
+  <div class="form-nav">
+    <button class="btn btn-ghost" onclick="goToStep(1)">← Previous</button>
+    <button class="btn btn-primary" onclick="goToStep(3)">Next →</button>
+  </div>
+</div>
+
+<!-- STEP 3: Review & Send -->
+<div id="step-3" style="display:none;">
+  <div class="review-card">
+    <div class="review-card-header" style="background:var(--surface2);display:flex;align-items:center;gap:8px;">
+      <span style="font-size:18px;">📋</span>
+      <div>
+        <div class="review-card-title">New Hire Summary</div>
+        <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">Review all details before submitting</div>
+      </div>
+    </div>
+    <div id="review-content"></div>
+  </div>
+
+  <div class="form-nav">
+    <button class="btn btn-ghost" onclick="goToStep(2)">← Previous</button>
+    <button class="btn btn-primary" onclick="submitForm()">✓ Submit & Notify HR</button>
+  </div>
+</div>
+```
+
   </div>
 </div>
 
 <!-- ══════════ SUCCESS SCREEN ══════════ -->
+
 <div id="success-screen" class="screen">
   <div class="success-card">
     <div class="success-icon">✓</div>
     <div class="success-title">Record Created!</div>
     <div class="success-id" id="success-id"></div>
 
-    <div class="success-notice">
-      <div class="notice-label">📧 Notify HR</div>
-      <div class="notice-text" id="success-email-notice" style="margin-bottom:10px;"></div>
-      <div style="display:flex;flex-direction:column;gap:8px;">
-        <button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="showEmailModal()">
-          📬 Send HR Notification
-        </button>
-        <button class="btn btn-ghost" style="width:100%;justify-content:center;" onclick="copyEmailContent()">
-          📋 Copy Email Content
-        </button>
-        <div id="copy-confirm" style="display:none;font-size:11px;color:var(--green);text-align:center;margin-top:2px;">✓ Copied — paste into a new email</div>
-        <div id="email-addresses" style="font-size:11px;color:var(--text-muted);text-align:center;"></div>
-      </div>
-    </div>
+```
+<div class="success-notice">
+  <div class="notice-label">📧 Notify HR</div>
+  <div class="notice-text" id="success-email-notice" style="margin-bottom:10px;"></div>
+  <div style="display:flex;flex-direction:column;gap:8px;">
+    <button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="showEmailModal()">
+      📬 Send HR Notification
+    </button>
+    <button class="btn btn-ghost" style="width:100%;justify-content:center;" onclick="copyEmailContent()">
+      📋 Copy Email Content
+    </button>
+    <div id="copy-confirm" style="display:none;font-size:11px;color:var(--green);text-align:center;margin-top:2px;">✓ Copied — paste into a new email</div>
+    <div id="email-addresses" style="font-size:11px;color:var(--text-muted);text-align:center;"></div>
+  </div>
+</div>
 
-    <div class="action-list">
-      <div class="action-list-title">⚡ Your Next Steps</div>
-      <div class="action-item"><div class="action-num">1</div><div>Send handbook via DocuSign — wait for signed copy before proceeding</div></div>
-      <div class="action-item"><div class="action-num">2</div><div>Set up employee in QBO Payroll — send self-onboarding invite</div></div>
-      <div class="action-item"><div class="action-num">3</div><div>Set up employee in Contractor Foreman using CF Setup info</div></div>
-      <div class="action-item" id="insurance-action-item" style="display:none;"><div class="action-num">4</div><div>Call insurance — employee confirmed interest in bundle. Prep enrollment paperwork.</div></div>
-      <div class="action-item" id="k401-action-item" style="display:none;"><div class="action-num">5</div><div>Set up 401(k) enrollment for this employee.</div></div>
-    </div>
+<div class="action-list">
+  <div class="action-list-title">⚡ Your Next Steps</div>
+  <div class="action-item"><div class="action-num">1</div><div>Send handbook via DocuSign — wait for signed copy before proceeding</div></div>
+  <div class="action-item"><div class="action-num">2</div><div>Set up employee in QBO Payroll — send self-onboarding invite</div></div>
+  <div class="action-item"><div class="action-num">3</div><div>Set up employee in Contractor Foreman using CF Setup info</div></div>
+  <div class="action-item" id="insurance-action-item" style="display:none;"><div class="action-num">4</div><div>Call insurance — employee confirmed interest in bundle. Prep enrollment paperwork.</div></div>
+  <div class="action-item" id="k401-action-item" style="display:none;"><div class="action-num">5</div><div>Set up 401(k) enrollment for this employee.</div></div>
+</div>
 
-    <a class="calendar-btn" id="calendar-link" href="#" target="_blank">
-      📅 Add 90-Day Review to Outlook Calendar
-    </a>
+<a class="calendar-btn" id="calendar-link" href="#" target="_blank">
+  📅 Add 90-Day Review to Outlook Calendar
+</a>
 
-    <div class="success-actions">
-      <button class="btn btn-ghost" onclick="newEmployee()">+ New Employee</button>
-      <button class="btn btn-primary" onclick="showDashboard()">Go to Dashboard</button>
-    </div>
+<div class="success-actions">
+  <button class="btn btn-ghost" onclick="newEmployee()">+ New Employee</button>
+  <button class="btn btn-primary" onclick="showDashboard()">Go to Dashboard</button>
+</div>
+```
+
   </div>
 </div>
 
 <!-- ══════════ EMPLOYEE DETAIL MODAL ══════════ -->
+
 <div class="modal-overlay" id="detail-modal" onclick="closeModal(event)">
   <div class="modal">
     <div class="modal-header">
@@ -2584,6 +2600,7 @@ function fallbackCopy(text) { fallbackCopyNew(text); }
 </script>
 
 <!-- EMAIL MODAL -->
+
 <div class="modal-overlay" id="email-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.9);z-index:300;align-items:center;justify-content:center;padding:16px;">
   <div style="background:var(--surface);border:1px solid var(--gold-border);border-radius:var(--radius-lg);width:100%;max-width:560px;max-height:85vh;display:flex;flex-direction:column;">
     <div style="padding:14px 16px;background:var(--surface2);border-bottom:1px solid var(--surface3);display:flex;align-items:center;justify-content:space-between;border-radius:var(--radius-lg) var(--radius-lg) 0 0;">
